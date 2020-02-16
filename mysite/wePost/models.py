@@ -12,7 +12,7 @@ CONTENT_TYPE_CHOICES = (
 class Author(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    email = models.EmailField()
+    email = models.EmailField(unique = True)
     bio = models.TextField()
     host = models.URLField()
     firstName = models.CharField(max_length=256)
