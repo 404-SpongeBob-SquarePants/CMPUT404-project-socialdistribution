@@ -10,6 +10,7 @@ class Author(models.Model):
     displayName = models.CharField(max_length = 256)
     url = models.URLField()
     github = models.URLField()
+    active = models.BooleanField(default = False)
 
 class Post(models.Model):
 
