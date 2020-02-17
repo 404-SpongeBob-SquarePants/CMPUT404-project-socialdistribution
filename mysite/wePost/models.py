@@ -63,8 +63,7 @@ class Friend(models.Model):
 
     FRIENDSTATUS = (
         ("U", "Unprocessed"),
-        ("A", "Accepted"),
-        ("R", "Rejected"),
+        ("A", "Accepted")
     )
     date = models.DateField(auto_now_add=True)
     f1Id = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="f1Ids")
