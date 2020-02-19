@@ -18,7 +18,6 @@ class Author(models.Model):
     REGISTERSTATUS = (
         ("U", "Unprocessed"),
         ("A", "Allowed"),
-        ("R", "Rejected"),
     )
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(unique=True)
@@ -26,7 +25,6 @@ class Author(models.Model):
     displayName = models.CharField(max_length=256)
     url = models.URLField()
     github = models.URLField()
-    active = models.BooleanField(default=False)
     bio = models.CharField(max_length=2048, blank=True)
     registerStatus = models.CharField(max_length=1, choices=REGISTERSTATUS, default="U")
 
