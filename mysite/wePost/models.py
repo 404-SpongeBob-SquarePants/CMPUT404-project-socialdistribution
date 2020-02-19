@@ -1,6 +1,12 @@
 from django.db import models
 import uuid
 
+DEFAULTHOST = "http://127.0.0.1:3000/"
+CONTENTTYPE = (
+    ("text/plain", "plain text"),
+    ("text/markdown", "markdown text"),
+)
+
 # Create your models here.
 class Admin(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -35,8 +41,15 @@ class Post(models.Model):
     )
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    source = models.URLField(default=DEFAULTHOST)
+    origin = models.URLField(default=DEFAULTHOST)
     title = models.CharField(max_length=256)
+    description = models.CharField(max_length=256, blank=True)
     content = models.TextField()
+    contentType = models.CharField(
+        max_length=16, choices=CONTENTTYPE, default="text/markdown"
+    )
+    categories = models.TextField(blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="posts")
     count = models.PositiveIntegerField()
     published = models.DateTimeField(auto_now_add=True)
@@ -54,6 +67,9 @@ class Comment(models.Model):
         Author, on_delete=models.CASCADE, related_name="comments"
     )
     comment = models.CharField(max_length=400)
+    contentType = models.CharField(
+        max_length=16, choices=CONTENTTYPE, default="text/markdown"
+    )
     published = models.DateTimeField(auto_now_add=True, blank=True)
 
 
@@ -61,10 +77,7 @@ class Friend(models.Model):
     class Meta:
         unique_together = (("f1Id", "f2Id"),)
 
-    FRIENDSTATUS = (
-        ("U", "Unprocessed"),
-        ("A", "Accepted")
-    )
+    FRIENDSTATUS = (("U", "Unprocessed"), ("A", "Accepted"))
     date = models.DateField(auto_now_add=True)
     f1Id = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="f1Ids")
     f2Id = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="f2Ids")
@@ -73,5 +86,5 @@ class Friend(models.Model):
 
 class Node(models.Model):
     host = models.CharField(max_length=256, primary_key=True)
-    port = models.IntegerField(null=True)
+    port = models.IntegerField(blank=True, default=3000)
 
