@@ -13,6 +13,9 @@ class Admin(models.Model):
     email = models.EmailField()
     displayName = models.CharField(max_length=256)
 
+    def __str__(self):
+        return self.displayName
+
 
 class Author(models.Model):
     REGISTERSTATUS = (
@@ -27,6 +30,9 @@ class Author(models.Model):
     github = models.URLField()
     bio = models.CharField(max_length=2048, blank=True)
     registerStatus = models.CharField(max_length=1, choices=REGISTERSTATUS, default="U")
+
+    def __str__(self):
+        return self.displayName
 
 
 class Post(models.Model):
@@ -57,6 +63,9 @@ class Post(models.Model):
     visibleTo = models.TextField(null=True, blank=True)
     unlisted = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.title
+
 
 class Comment(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -85,4 +94,7 @@ class Friend(models.Model):
 class Node(models.Model):
     host = models.CharField(max_length=256, primary_key=True)
     port = models.IntegerField(blank=True, default=3000)
+
+    def __str__(self):
+        return f"{self.host}:{self.port}"
 

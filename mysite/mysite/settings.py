@@ -146,3 +146,7 @@ CORS_ALLOW_HEADERS = [
 ]
 
 CORS_ALLOW_METHODS = list(default_methods)
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'wePost.serializers.DefaultResultsSetPagination',
+}
