@@ -5,7 +5,7 @@ import './AuthorProfile.css'
 import axios from 'axios';
 import cookie from 'react-cookies';
 import validateCookie from '../utils/utils.js';
-
+import {author_api} from "../utils/utils.js";
 class AuthorProfile extends Component {
 
     constructor(props) {
@@ -19,7 +19,7 @@ class AuthorProfile extends Component {
 
     componentDidMount() {
         validateCookie();
-        axios.get('http://localhost:8000/api/user/author/'.concat(this.props.username).concat("/"), 
+        axios.get(author_api .concat(this.props.username).concat("/"), 
         { headers: { 'Authorization': 'Token ' + cookie.load('token')}}).then(res => {
             var userInfo = res.data;
             this.setState({

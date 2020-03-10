@@ -10,6 +10,7 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 import './UserSelf.css';
 import cookie from 'react-cookies';
 import validateCookie from './utils/utils.js';
+import {post_api,author_api,fetch_post_api} from "./utils/utils.js";
 
 const { confirm } = Modal;
 
@@ -28,7 +29,7 @@ class UserSelf extends React.Component {
       okType: 'danger',
       cancelText: 'No',
       onOk() {
-        axios.delete('http://localhost:8000/api/post/' + String(postId) + '/', { headers: { 'Authorization': 'Token ' + cookie.load('token') } })
+        axios.delete(post_api + String(postId) + '/', { headers: { 'Authorization': 'Token ' + cookie.load('token') } })
         .then(function () {
           document.location.replace("/author/profile")
         })
@@ -56,7 +57,7 @@ class UserSelf extends React.Component {
       'Authorization': 'Token '.concat(token)
     }
 
-    axios.get('http://localhost:8000/api/user/author/'.concat(username).concat("/user_posts/"), 
+    axios.get(author_api.concat(username).concat("/user_posts/"), 
     {headers : headers}).then(res => {
         this.setState({
             username: username,
@@ -75,11 +76,11 @@ class UserSelf extends React.Component {
       'Authorization': 'Token '.concat(token)
     }
 
-    axios.get(`http://localhost:8000/api/user/author/current_user/`,{headers : headers}).then(
+    axios.get(fetch_post_api,{headers : headers}).then(
       responseA =>
         Promise.all([
           responseA,
-          axios.get("http://localhost:8000/api/user/author/".concat(responseA.data['username']).concat('/user_posts/'),{headers : headers})
+          axios.get(author_api.concat(responseA.data['username']).concat('/user_posts/'),{headers : headers})
         ])   
       ).then(
         ([responseA,responseB]) => {
