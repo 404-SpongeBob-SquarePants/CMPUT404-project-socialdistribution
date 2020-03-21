@@ -11,9 +11,9 @@ class Error extends React.Component {
 				<title title='Wrong！'></title>
 				<div className="row">
 					<div>
-						<h1>This page is not exist</h1>
+						<h1>This page does not exist</h1>
 						<br></br>
-						<a href='/'> Click me to return main page</a>
+						<a href='/'> Click here to return to main page</a>
 					</div>
 				</div>
 			</div>
