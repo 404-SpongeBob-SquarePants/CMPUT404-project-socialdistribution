@@ -20,4 +20,4 @@ class Error extends React.Component {
 		)
 	}
 }
-export default Error;
+export default Error
