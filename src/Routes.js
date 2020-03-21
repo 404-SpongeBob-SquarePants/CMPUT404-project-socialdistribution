@@ -1,5 +1,5 @@
 import React from "react"
-import { Route } from "react-router"
+import { Route,Switch } from "react-router"
 import User from "./User"
 import UserSelf from "./UserSelf"
 import Settings from "./Settings"
@@ -16,32 +16,34 @@ import NodesPage from './NodesPage';
 import AuthorPage from './AuthorPage';
 import ProfilePage from './ProfilePage';
 import AddNodesPage from './AddNodesPage';
+import Error from './404';
 import SearchPage from './SearchPage';
-
 const Routes = () => {
   return (
-    <div>
-      {/*author*/}
-      <Route exact path="/" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route path="/author/posts" component={User} />
-      <Route exact path="/author/:authorid/posts" component={UserSelf} />
-      <Route path="/settings" component={Settings} />
-      <Route path="/posts/:postid/comments" component={Comments} /> 
-      <Route path="/author/:authorid/friends" component={FriendsList} />
-      <Route path="/author/:authorid/friendrequest" component={FriendRequest} />
-      <Route path="/author/search" component={SearchPage} />
-      <Route path="/new_post" component={PostInput} />
-      <Route path="/posts/:postid/edit" component={PostEdit} />
-      
-      {/*admin*/}
-      <Route path="/sign-up-request" component={SignUpRequestPage} />
-      <Route path="/nodes-request" component={NodesRequestPage} />
-      <Route path="/my-nodes" component={NodesPage} />
-      <Route path="/authors" component={AuthorPage} />
-      <Route path="/profile" component={ProfilePage} />
-      <Route path="/add-nodes" component={AddNodesPage} />
-    </div>
+    <Switch>
+  {/*author*/}
+    <Route exact path="/" component={Login} />
+    <Route path="/register" component={Register} />
+    <Route path="/author/posts" component={User} />
+    <Route exact path="/author/:authorid/posts" component={UserSelf} />
+    <Route path="/settings" component={Settings} />
+    <Route path="/posts/:postid/comments" component={Comments} /> 
+    <Route path="/author/:authorid/friends" component={FriendsList} />
+    <Route path="/author/:authorid/friendrequest" component={FriendRequest} />
+    <Route path="/author/search" component={SearchPage} />
+    <Route path="/new_post" component={PostInput} />
+    <Route path="/posts/:postid/edit" component={PostEdit} />
+ 
+  {/*admin*/}
+    <Route path="/sign-up-request" component={SignUpRequestPage} />
+    <Route path="/nodes-request" component={NodesRequestPage} />
+    <Route path="/my-nodes" component={NodesPage} />
+    <Route path="/authors" component={AuthorPage} />
+    <Route path="/profile" component={ProfilePage} />
+    <Route path="/add-nodes" component={AddNodesPage} />
+
+    <Route path="*" component={Error} status={404}/>;
+    </Switch>
   )
 }
 
