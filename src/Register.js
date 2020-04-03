@@ -86,7 +86,7 @@ l
 
     return (
       <Layout>
-        <Layout.Content>
+        <Layout.Content className='R-mainpage'>
           <Card className="register-card">
             <Form {...formItemLayout}>
               <Form.Item
