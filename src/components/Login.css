@@ -1,22 +1,36 @@
-.login-form{
+.mainpage{
+    background-color: antiquewhite;
+    width: 100vw;
+    height: 100vh;
+}
+.login-card {
+    width: 300px;
+    position: absolute;
+    right: 30px;
+    top : 10vh;
+}
+.login-to-register{
+    float: right;
+}
+/* .login-form{
     margin-top: 10%;
     margin-right:42%; 
     margin-left:42%;
     margin-bottom:0%;
     padding-bottom: 0%;
-    /* position: fixed;  */
+    position: fixed;  
 }
 .login-form-button{
     padding-top: 0%;
     margin-top: 1%;
     margin-right:42%; 
     margin-left:42%;
-    /* position: fixed;  */
+    position: fixed; 
 }
 .login-to-register{
-    /* padding: 0%; */
+    padding: 0%;
     margin-top: 0;
     margin-right:42%; 
     margin-left:42%;
-    /* position: fixed;  */
-}
+position: fixed;  
+} */

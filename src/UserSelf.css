@@ -9,3 +9,12 @@
 img {
     border-radius: 6%;
   }
+
+.markdown-content img {
+    max-height:  50px;
+    margin : 1em;
+}
+
+.markdown-content p {
+    word-break: break-all;
+}
