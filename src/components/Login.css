@@ -1,12 +1,23 @@
 .mainpage{
-    width: 100%;
+    margin:5% 5% 5% 5%;
+    width: 90%;
     height: 100%;
-    background-position: 50% 50%;
     position: absolute; 
+    background-color:#A0EEE1;
     background-size: cover;
-    background-image: url("1.png");
+    background-image: url("login.jpg");
+}
+h1{
+    margin-left: 1%;
+    margin-top:1%;
+    color: white;
+    /* font-family: cursive; */
+    font-size: xx-large;
 }
 
+    h3{
+        margin-left: 3%;
+    color: white;}
 .login-card {
     width: 300px;
     position: absolute;

@@ -48,6 +48,13 @@ class NormalLoginForm extends React.Component {
     return (
       <Layout>
         <Layout.Content className='mainpage'>
+          <span className="intro">
+            <h1>
+              Welcome to Sponge Book!
+            </h1>
+            <br/>
+              <h3> A forum connects real life.</h3>
+          </span>
             <Card className="login-card">
               <Form className="login-form">
                 <Form.Item>
@@ -91,7 +98,6 @@ class NormalLoginForm extends React.Component {
                 </Form.Item>
               </Form>
             </Card>
-            <audio src='/static/bgm.mp3' autoPlay="autoPlay"></audio>
         </Layout.Content>
       </Layout>
       

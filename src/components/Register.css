@@ -1,12 +1,11 @@
 .R-mainpage{
-
-    width: 100%;
+    margin:5% 5% 5% 5%;
+    width: 90%;
     height: 100%;
-    background-position: 50% 50%;
     position: absolute; 
+    background-color:#A0EEE1;
     background-size: cover;
-    background-image: url("1.png");
-
+    background-image: url("login.jpg");
 }
 
 .register-card {
